@@ -1,3 +1,10 @@
 This software should be run with PHP 7.x
 
 unitTests are run from the command line (CL) and therefore require php7-cli
+
+eg: php unitTests.php
+
+Web interface is run from index.php (requires webserver running php 7.x).
+
+For testing import.csv is created by UnitTests.php and is not cleaned up, it is left
+to test via index.php.
