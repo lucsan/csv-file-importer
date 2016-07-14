@@ -47,10 +47,12 @@ class main {
     $str = '';
     foreach ($this->rawData as $values) {
       if (!isset($data[$values[0]])) {
-        $data[$values[0]] = ['cost' => 0, 'amount' => 0];
+        $data[$values[0]] = ['cost' => 0];
       }
-      $data[$values[0]]['cost'] += $values[1];
-      $data[$values[0]]['amount'] += $values[2];
+      $price = $values[1] - 0;
+      $amount = $values[2] - 0;
+      $cost = $price * $amount;
+      $data[$values[0]]['cost'] += $cost;
     }
     // Create output file.
     if (file_exists($this->output)) unlink($this->output);
@@ -59,6 +61,7 @@ class main {
       file_put_contents($this->output, $str, FILE_APPEND);
     }
     $this->procData = $data;
+    print_r($data);
     return $data;
   }
 

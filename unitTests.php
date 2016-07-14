@@ -71,7 +71,7 @@ class unitTests {
   public function test_processData ()
   {
     $returned = self::$main->processData();
-    assert($returned['Hotel']['amount'] == 4, "/* processed['Hotel', ['amount'] should be 4. */");
+    assert($returned['Hotel']['cost'] == 288, "/* processed['Hotel', ['amount'] should be 288. */");
     assert(file_exists($this->output), 'output.csv file should exist.');
     $outputFile = file_get_contents($this->output);
     assert(stripos($outputFile, 'Fuel') == 11, 'Fuel should start at 11th char.');
